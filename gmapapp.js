@@ -4,17 +4,19 @@ var infowindow;
 
 
 function lunch_gmapapp(){
+    var API_Key ;//take from API_Key.txt
     
-    var API_Key = ;//take from API_Key.txt
+    $.get('API_Key.txt', function(data) {
+        API_Key = data;
     
-    var script = document.createElement('script');
-    script.src = 'https://maps.googleapis.com/maps/api/js?key=' + API_Key + '&libraries=places&callback=initMap';
-    script.async = true;
+        var script = document.createElement('script');
+        script.src = 'https://maps.googleapis.com/maps/api/js?key=' + API_Key + '&libraries=places&callback=initMap';
+        script.async = true;
 
-    // Append the 'script' element to 'head'
-    document.head.appendChild(script);
-    
-    
+        // Append the 'script' element to 'head'
+        document.head.appendChild(script);
+    });    
+
     // Attach your callback function to the `window` object
     window.initMap = function(place) {
     // JS API is loaded and available
@@ -43,8 +45,8 @@ function lunch_gmapapp(){
           ],
         };
         map.setOptions({ styles: styles["hide"] });
-      };
-    }
+    };
+}
 
 
 function findPlace(place){
