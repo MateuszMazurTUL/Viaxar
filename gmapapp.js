@@ -5,7 +5,7 @@ var infowindow;
 
 function lunch_gmapapp(){
     
-    var API_Key = AIzaSyDm5EKc8JBy0_ixYlkCxlQPqnMbaf7LA_A
+    var API_Key = ;//take from API_Key.txt
     
     var script = document.createElement('script');
     script.src = 'https://maps.googleapis.com/maps/api/js?key=' + API_Key + '&libraries=places&callback=initMap';
