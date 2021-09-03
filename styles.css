@@ -133,3 +133,35 @@ button:hover {
     
     display: none;
 }
+
+#T3-map{
+    position: fixed;
+    z-index: 999;
+    top: 45px;
+    right: -10px;
+    
+    width: 400px;
+    height: 90px;
+    
+    border-radius: 10px;
+    
+    
+    background-color: rgba(0,0,0,0.85);
+}
+
+.city_name {
+   position: relative;
+    bottom: 35px;
+}
+
+.attraction_list{
+    
+    background-color: rgba(0,0,0,0.85);
+    border-radius: 10px;
+    
+    padding: 5px;
+    position: relative;
+    bottom: 35px;
+    
+    font-size: 20px;
+}
