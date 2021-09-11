@@ -129,7 +129,7 @@ button:hover {
     right: 0;
     
     width: 100vw;
-    height: 70vh;
+    height: 100vh;
     
     display: none;
 }
@@ -143,15 +143,21 @@ button:hover {
     width: 400px;
     height: 90px;
     
-    border-radius: 10px;
-    
+    border-radius: 1px;
     
     background-color: rgba(0,0,0,0.85);
 }
 
 .city_name {
    position: relative;
-    bottom: 35px;
+    bottom: 20px;
+    font-size: 40px;
+}
+.attract{
+    font-size: 16px;;
+}
+.timeattract{
+    font-size: 11px;;
 }
 
 .attraction_list{
@@ -163,5 +169,12 @@ button:hover {
     position: relative;
     bottom: 35px;
     
-    font-size: 20px;
+}
+.attractionsboxes{
+    font-size: 35px;
+    display: inline;
+}
+
+.buttonsearch{
+    margin-top: 20px;
 }
