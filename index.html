@@ -3,29 +3,37 @@
 <head>
     <meta charset="UTF-8">
 
-    <script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="data-form.js"></script>
     <link rel="stylesheet" href="clear-css.css">
     <link rel="stylesheet" href="styles.css">
     <title>Viaxar</title>
 </head>
 <body>
-<div class="overall">
-    <div class="top-padding"></div>
-    <div class="mid-padding">
-        <div class="mid-left-padding"></div>
-        <div class="mid-center-padding">
-            <div id="appboard">
-               
-                <!--This is a comment. Comments are not displayed in the browser-->
-                
+    <div class="overall">
+        <div class="top-padding"></div>
+        <div class="mid-padding">
+            <div class="mid-left-padding"></div>
+            <div class="mid-center-padding">
+                <div id="appboard">
+                   <form>
+                        <input type="text" value="CITY NAME..." class="input" id="cName">
+                        <div class="underline"></div>
+                        <div class="attractionsboxes">
+                            <label><input type="checkbox" class="checkbox1" value="museum">Museum</label>
+                            <label><input type="checkbox" class="checkbox1" value="city_hall">City Hall</label>
+                            <label><input type="checkbox" class="checkbox1" value="art_gallery">Art Gallery</label>
+                            <label><input type="checkbox" class="checkbox1" value="park">Park</label>
+                            <label><input type="checkbox" class="checkbox1" value="church">Church</label>
+                        </div>
+                        <label>Radius<input type="range" class="range1" id="radiusNearbySearch" value="95"></label>
+                        <input type="button" class="submit1" id="button-submit-data-form" value="Search">
+                   </form>
+                </div>
             </div>
+            <div class="mid-right-padding"></div>
         </div>
-        <div class="mid-right-padding"></div>
+        <div class="bot-padding"></div>
     </div>
-    <div class="bot-padding"></div>
-</div>
-<div id="map"></div>
 </body>
 </html>

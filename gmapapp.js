@@ -9,51 +9,55 @@ var waypointsT;
 
 //Inicjalizacji google maps
 function lunch_gmapapp() {
-    $.get('API_Key.txt', function (data) {
+     return new Promise(function (resolve, reject) {
+        $.get('API_Key.txt', function (data) {
 
-        //Pobieramy API KEY z pliku
-        var API_Key = data;
+            //Pobieramy API KEY z pliku
+            var API_Key = data;
 
-        //Dodajemy skrypt do pliku html
-        var script = document.createElement('script');
-        script.src = 'https://maps.googleapis.com/maps/api/js?key=' + API_Key + '&libraries=places&callback=initMap';
-        document.head.appendChild(script);
-    });
-
-    //Dodajemy mapę do strony
-    window.initMap = function (place) {
-        //Konfigurujemy ustawienia
-        infowindow = new google.maps.InfoWindow();
-        map = new google.maps.Map(document.getElementById("map"), {
-            center: new google.maps.LatLng(0, 0),
-            zoom: 1,
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            mapTypeControl: false,
-            mapTypeControlOptions: {
-                style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
-            },
-            navigationControl: true,
-            navigationControlOptions: {
-                style: google.maps.NavigationControlStyle.SMALL
-            }
+            //Dodajemy skrypt do pliku html
+            var script = document.createElement('script');
+            script.src = 'https://maps.googleapis.com/maps/api/js?key=' + API_Key + '&libraries=places&callback=initMap';
+            document.head.appendChild(script);
         });
 
-        const styles = {
-            default: [],
-            hide: [
-                {
-                    featureType: "poi",
-                    stylers: [{ visibility: "off" }],
+        //Dodajemy mapę do strony
+        window.initMap = function (place) {
+            //Konfigurujemy ustawienia
+            infowindow = new google.maps.InfoWindow();
+            
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: new google.maps.LatLng(0, 0),
+                zoom: 1,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                mapTypeControl: false,
+                mapTypeControlOptions: {
+                    style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
                 },
-                {
-                    featureType: "transit",
-                    elementType: "labels.icon",
-                    stylers: [{ visibility: "off" }],
-                },
-            ],
-        };
-        map.setOptions({ styles: styles["hide"] });
-    };
+                navigationControl: true,
+                navigationControlOptions: {
+                    style: google.maps.NavigationControlStyle.SMALL
+                }
+            });
+
+            const styles = {
+                default: [],
+                hide: [
+                    {
+                        featureType: "poi",
+                        stylers: [{ visibility: "off" }],
+                    },
+                    {
+                        featureType: "transit",
+                        elementType: "labels.icon",
+                        stylers: [{ visibility: "off" }],
+                    },
+                ],
+            };
+            map.setOptions({ styles: styles["hide"] });
+            resolve(document.head);
+         };
+     });
 }
 
 //Funckja która przyjmuje jako parametr wpisane miasto
@@ -81,7 +85,7 @@ function findPlace(place) {
                     coord: results[0].geometry.location.toJSON()
                 }
                 resolve(geometryPlace);
-            }
+            } else console.log(status);
         });
     });
 }
@@ -128,7 +132,7 @@ function filterNearby(places) {
 }
 
 //Wylicza dystanse między atrakcjami
-function matrixNearby(places,date) {
+function matrixNearby(places,date = Date.now()) {
     return new Promise(function (resolve) {
 
         const serviceMatrix = new google.maps.DistanceMatrixService();
