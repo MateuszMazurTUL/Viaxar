@@ -19,14 +19,16 @@
                    <form>
                         <input type="text" value="CITY NAME..." class="input" id="cName">
                         <div class="underline"></div>
+                        <p></p>
                         <div class="attractionsboxes">
-                            <label><input type="checkbox" class="checkbox1" value="museum">Museum</label>
-                            <label><input type="checkbox" class="checkbox1" value="city_hall">City Hall</label>
-                            <label><input type="checkbox" class="checkbox1" value="art_gallery">Art Gallery</label>
-                            <label><input type="checkbox" class="checkbox1" value="park">Park</label>
-                            <label><input type="checkbox" class="checkbox1" value="church">Church</label>
+                            <label class="overCheckbox"><input type="checkbox" class="checkbox1" value="museum">Museum</label>
+                            <label class="overCheckbox"><input type="checkbox" class="checkbox1" value="city_hall">City Hall</label>
+                            <label class="overCheckbox"><input type="checkbox" class="checkbox1" value="art_gallery">Art Gallery</label>
+                            <label class="overCheckbox"><input type="checkbox" class="checkbox1" value="park">Park</label>
+                            <label class="overCheckbox"><input type="checkbox" class="checkbox1" value="church">Church</label>
                         </div>
-                        <label>Radius<input type="range" class="range1" id="radiusNearbySearch" value="95"></label>
+                        <p></p>
+                        <label>Radius from center<input type="range" class="range1" id="radiusNearbySearch" min="500", max="50000", step="500", value="95"></label>
                         <input type="button" class="submit1" id="button-submit-data-form" value="Search">
                    </form>
                 </div>
@@ -35,5 +37,6 @@
         </div>
         <div class="bot-padding"></div>
     </div>
+    <div id="errorDiv"></div>
 </body>
 </html>

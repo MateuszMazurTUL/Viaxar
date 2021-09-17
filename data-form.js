@@ -1,4 +1,10 @@
 $(document).ready(function () {
+    //losowe tlo
+    numOfBgn = Math.floor((Math.random()*4))+1;
+    urlBgn = 'url("img/bgn/bgn'+numOfBgn+'.jpg")';
+    $('body').css('background-image', urlBgn);
+    
+    
     $('#button-submit-data-form').click(function(){
         //zapisujemy dane wyszukiwania wpisane w formularzu do sessionStorage
         sessionStorage.setItem('cName',$('#cName').val()); //nazwa miasta
