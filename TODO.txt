@@ -1,5 +1,5 @@
 Error handling
 animacje
 ogólnie front end do poprawy
-funkcjonalność wybrania dnia i godziny podróży
+
 itp.
